@@ -23,9 +23,9 @@
     <meta name="twitter:card" content="" />
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 
-    <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'> -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
 
     <!-- Animate.css -->
     <link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
@@ -66,6 +66,24 @@
     <script src="{{ asset('assets/js/hoverIntent.js') }}"></script>
     <script src="{{ asset('assets/js/superfish.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+
+    <script>
+           AOS.init({
+        duration: 1000, // Animation duration
+        offset: 120, // Offset from the viewport
+        easing: 'ease-in-out', // Animation easing
+        once: false, // Allow animations to repeat
+    });
+
+    // Add scroll listener to reset AOS when at the top
+    window.addEventListener('scroll', function () {
+        if (window.scrollY === 0) {
+            AOS.refresh(); // Refresh AOS animations when scrolled to the top
+        }
+    });
+    </script>
 </body>
 
 </html>
