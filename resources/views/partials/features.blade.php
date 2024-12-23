@@ -116,8 +116,8 @@
 {{-- another section --}}
 <div id="fh5co-feature-product" class="fh5co-section-gray">
     <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center heading-section">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center heading-section">
                 <h3>Bringing Hope Through Nourishment: Feeding Gaza's Children in Crisis</h3>
                 <p>Amid the ongoing conflict and crushing poverty, children in the Gaza Strip face a daily battle for
                     survival. Disease and malnutrition threaten their lives as they are cut off from clean water,
@@ -126,29 +126,30 @@
             </div>
         </div>
 
-        <div class="row row-bottom-padded-md">
-            <div class="col-md-12 text-center animate-box">
-                <p><img src="{{ asset('assets/images/1.jpg') }}" alt="Free HTML5 Bootstrap Template"
-                        class="img-responsive"></p>
-            </div>
-            <div class="col-md-6 text-center animate-box">
-                <p><img src="{{ asset('assets/images/2.jpg') }}" alt="Free HTML5 Bootstrap Template"
-                        class="img-responsive"></p>
-            </div>
-            <div class="col-md-6 text-center animate-box">
-                <p><img src="{{ asset('assets/images/3.jpg') }}" alt="Free HTML5 Bootstrap Template"
-                        class="img-responsive"></p>
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center animate-box">
+                <p><img src="{{ asset('assets/images/4.jpg') }}" alt="Nourishment for Gaza" class="img-responsive img-fluid rounded"></p>
             </div>
         </div>
+
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6 text-center animate-box">
+                <p><img src="{{ asset('assets/images/2.jpg') }}" alt="Hope for Gaza" class="img-responsive img-fluid rounded"></p>
+            </div>
+            <div class="col-md-6 text-center animate-box">
+                <p><img src="{{ asset('assets/images/3.jpg') }}" alt="Compassion in Action" class="img-responsive img-fluid rounded"></p>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-4 text-center">
                 <div class="feature-text">
                     <h3>Love</h3>
                     <p>In Gaza, amidst the rubble and despair, love endures as families hold each other close, finding
                         strength in unity and hope for a brighter tomorrow.</p>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 text-center">
                 <div class="feature-text">
                     <h3>Compassion</h3>
                     <p>In Gaza, compassion shines through acts of kindness, as communities come together to share what
@@ -156,15 +157,41 @@
                     </p>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 text-center">
                 <div class="feature-text">
                     <h3>Charity</h3>
                     <p>In Gaza, charity becomes a lifeline, bringing food, water, and medicine to those who need it
-                        most, restoring dignity and offering a chance to heal.</p>
+                        most, restoring dignity and offering a chance to heal.</p>
                 </div>
             </div>
         </div>
-
-
     </div>
 </div>
+
+<style>
+    #fh5co-feature-product {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 60px 15px;
+    }
+
+    .heading-section h3 {
+        margin-bottom: 20px;
+    }
+
+    .row img {
+        margin-bottom: 20px;
+    }
+
+    .row.justify-content-center {
+        display: flex;
+        justify-content: center;
+    }
+
+    .feature-text {
+        margin-top: 20px;
+        padding: 15px;
+    }
+</style>

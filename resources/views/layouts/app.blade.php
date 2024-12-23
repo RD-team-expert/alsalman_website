@@ -41,6 +41,8 @@
 
     <!-- Modernizr JS -->
     <script src="{{ asset('assets/js/modernizr-2.6.2.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
 </head>
 
 <body>
@@ -55,7 +57,6 @@
             @include('partials.footer')
         </div>
     </div>
-
     <!-- Scripts -->
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.easing.1.3.js') }}"></script>
@@ -69,21 +70,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
 
-    <script>
-           AOS.init({
-        duration: 1000, // Animation duration
-        offset: 120, // Offset from the viewport
-        easing: 'ease-in-out', // Animation easing
-        once: false, // Allow animations to repeat
-    });
-
-    // Add scroll listener to reset AOS when at the top
-    window.addEventListener('scroll', function () {
-        if (window.scrollY === 0) {
-            AOS.refresh(); // Refresh AOS animations when scrolled to the top
-        }
-    });
-    </script>
+    
 </body>
+<script>
+    AOS.init({
+ duration: 1000, // Animation duration
+ offset: 120, // Offset from the viewport
+ easing: 'ease-in-out', // Animation easing
+ once: false, // Allow animations to repeat
+});
 
+// Add scroll listener to reset AOS when at the top
+window.addEventListener('scroll', function () {
+ if (window.scrollY === 0) {
+     AOS.refresh(); // Refresh AOS animations when scrolled to the top
+ }
+});
+</script>
 </html>

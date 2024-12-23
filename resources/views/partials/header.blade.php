@@ -14,7 +14,7 @@
                         <a href="{{url('/')}}">Home</a>
                     </li>
                     <li><a href="#fh5co-features">Bringing Hope</a></li>
-                    <li><a href="#fh5co-portfolio">Our Gallery</a></li>
+                    <li><a href="#fh5co-portfolio">Our Story</a></li>
                     <li><a href="#fh5co-services-section">Our Mission</a></li>
                     <li><a href="{{url('form')}}">Donate</a></li>
 
