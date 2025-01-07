@@ -13,7 +13,6 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
             'admin' => \App\Http\Middleware\AdminMiddleware::class,
-            'exclude-webhook-csrf' => \App\Http\Middleware\ExcludeWebhookFromCsrf::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
