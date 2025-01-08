@@ -10,7 +10,7 @@
 
         <!-- Total Amount Box -->
         <div class="bg-blue-100 p-4 rounded mb-6 shadow">
-            <p class="text-lg font-semibold">Total Amount: ${{ number_format($totalAmount, 2) }}</p>
+            <p class="text-lg font-semibold">Total Amount : ${{ number_format($totalAmount, 2) }}</p>
         </div>
 
         <!-- Entries Table -->
