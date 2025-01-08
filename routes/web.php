@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CognitoFormController;
+use Illuminate\Support\Facades\Log;
 
 // Public route
 Route::get('/', function () {
@@ -14,9 +15,10 @@ Route::get('/form', function () {
     return view('form'); // Public page
 });
 
-// Webhook route for receiving Cognito Forms submissions
-Route::post('/webhook/cognito-form', [CognitoFormController::class, 'handleWebhook'])->name('webhook.cognito');
-
+// Route::post('/webhook/cognito-form', function () {
+//     Log::info('Webhook route hit.');
+//     return response()->json(['message' => 'Route hit'], 200);
+// });
 // Admin route (requires login)
 Route::middleware(['auth'])->group(function () {
     Route::get('/admin/entries', [AdminController::class, 'showEntries'])->name('admin.entries');

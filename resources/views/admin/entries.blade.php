@@ -24,7 +24,13 @@
                             <td class="py-3 px-6 whitespace-nowrap">{{ $entry->id }}</td>
                             <td class="py-3 px-6 whitespace-nowrap">{{ $entry->form_id }}</td>
                             <td class="py-3 px-6 whitespace-pre-wrap">
-                                <pre class="bg-gray-100 p-2 rounded">{{ json_encode(json_decode($entry->submission_data), JSON_PRETTY_PRINT) }}</pre>
+                                @php
+    $submission = json_decode($entry->submission_data, true);
+@endphp
+
+@foreach($submission as $key => $value)
+    <p><strong>{{ ucfirst($key) }}:</strong> {{ $value }}</p>
+@endforeach
                             </td>
                             <td class="py-3 px-6 whitespace-nowrap">{{ $entry->created_at }}</td>
                         </tr>

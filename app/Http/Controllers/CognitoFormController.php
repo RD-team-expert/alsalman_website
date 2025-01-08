@@ -10,33 +10,33 @@ class CognitoFormController extends Controller
 {
     public function handleWebhook(Request $request)
     {
+        Log::info('Webhook hit: Start processing request.');
+
         try {
-            // Validate incoming request data
-            $validated = $request->validate([
-                'formId' => 'required|string',
-                'entry' => 'required|array',
-            ]);
+            // Log the entire incoming request payload
+            Log::info('Incoming request payload:', $request->all());
 
-            // Store the validated data in the database
-            CognitoSubmission::create([
-                'form_id' => $validated['formId'],
-                'submission_data' => json_encode($validated['entry']),
-            ]);
+            // Retrieve formId and entry without validation
+            $formId = $request->input('formId', 'unknown-form'); // Default to 'unknown-form' if formId is missing
+            Log::info('Retrieved formId:', ['formId' => $formId]);
 
-            // Return a success response for the webhook
+            $entry = $request->input('entry', []); // Default to an empty array if entry is missing
+            Log::info('Retrieved entry data:', ['entry' => $entry]);
+
+            // Store the data in the database
+            $submission = CognitoSubmission::create([
+                'form_id' => $formId,
+                'submission_data' => json_encode($entry),
+            ]);
+            Log::info('Data successfully saved to the database:', ['submission' => $submission]);
+
+            // Return a success response
+            Log::info('Webhook processed successfully.');
             return response()->json(['message' => 'Webhook data saved successfully'], 200);
 
-        } catch (\Illuminate\Validation\ValidationException $e) {
-            // Handle validation errors
-            Log::error('Validation Error: ' . $e->getMessage());
-            return response()->json([
-                'error' => 'Validation Failed',
-                'details' => $e->errors(),
-            ], 422);
-
         } catch (\Exception $e) {
-            // Handle general errors
-            Log::error('General Error: ' . $e->getMessage());
+            // Log the error
+            Log::error('Error occurred while processing webhook:', ['error' => $e->getMessage()]);
             return response()->json([
                 'error' => 'Internal Server Error',
                 'reason' => $e->getMessage(),
